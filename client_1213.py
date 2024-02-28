@@ -88,6 +88,7 @@ def main():
 
     while True:
         currentTime = datetime.now()
+        t = datetime.now()
         timedelta = currentTime - t
         print(timedelta.total_seconds())
         if timedelta.total_seconds() >= 60:
