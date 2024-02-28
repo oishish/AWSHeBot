@@ -1,9 +1,6 @@
 import boto3
 import time
-import socket
-import serial
 import time
-import sys
 from datetime import datetime
 import ftplib
 import glob
