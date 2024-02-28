@@ -27,7 +27,7 @@ def retrieve_data_from_QD(host, i = 0):
         file = open(filename, 'wb')
         qd.retrbinary(f'RETR {filename}', file.write)
         qd.quit()
-        folder_path = r'C:\Users/Graph/'
+        folder_path = r'C:\Users/Graph/Desktop'
         file_type = r'\*.dat'
         files = glob.glob(folder_path + file_type)
         iden = max(files, key=os.path.getctime)
@@ -58,7 +58,10 @@ def main():
     ## Initially, retrieve data from each of the three quantum designs
 
     for QD in QD_DICT.keys():
+        print('Retrieving data from' + QD_DICT[QD])
         Volume_data, Rate_of_Change, P_dewar, SP_press, Connection_state = retrieve_data_from_QD(host = QD_DICT[QD])
+        print('Volume, Rate, Pressure, Pressure setpoint, Connection status')
+        print(str(Volume_data[-1]), str(Rate_of_Change[-1]), str(P_dewar[-1]), str(SP_press[-1]), str(Connection_state[-1]))
         
         CURRENT_TIME = str(int(time.time() * 1000))
         print(CURRENT_TIME)
@@ -71,6 +74,7 @@ def main():
         dimension4 = [ {'Name': 'Parameter', 'Value': 'Pressure Setpoint'}, {'Name': 'Units', 'Value': 'PSI'}, {'Name': 'Quantum Design Liquifier', 'Value': QD}]
         dimension5 = [ {'Name': 'Parameter', 'Value': 'Connection status'}, {'Name': 'Units', 'Value': 'Boolean'}, {'Name': 'Quantum Design Liquifier', 'Value': QD}]
         print(str(Volume_data[-1]), str(Rate_of_Change[-1]), str(P_dewar[-1]), str(SP_press[-1]), str(Connection_state[-1]))
+        print(str(Volume_data))
         record1 = { 'Time': CURRENT_TIME, 'Dimensions': dimension1, 'MeasureName': 'Volume', 'MeasureValue': str(Volume_data[-1]),'MeasureValueType': 'DOUBLE'}
         record2 = { 'Time': CURRENT_TIME, 'Dimensions': dimension2, 'MeasureName': 'Rate', 'MeasureValue': str(Rate_of_Change[-1]),'MeasureValueType': 'DOUBLE'}
         record3 = { 'Time': CURRENT_TIME, 'Dimensions': dimension3, 'MeasureName': 'Pactual', 'MeasureValue': str(P_dewar[-1]),'MeasureValueType': 'DOUBLE'}
@@ -85,16 +89,18 @@ def main():
 
 
 
-
+    t = datetime.now()
     while True:
         currentTime = datetime.now()
-        t = datetime.now()
         timedelta = currentTime - t
         print(timedelta.total_seconds())
         if timedelta.total_seconds() >= 60:
             t = currentTime
             for QD in QD_DICT.keys():
+                print('Retrieving data from' + QD_DICT[QD])
                 Volume_data, Rate_of_Change, P_dewar, SP_press, Connection_state = retrieve_data_from_QD(host = QD_DICT[QD])
+                print('Volume, Rate, Pressure, Pressure setpoint, Connection status')
+                print(str(Volume_data[-1]), str(Rate_of_Change[-1]), str(P_dewar[-1]), str(SP_press[-1]), str(Connection_state[-1]))
                 
                 CURRENT_TIME = str(int(time.time() * 1000))
                 print(CURRENT_TIME)
@@ -112,7 +118,7 @@ def main():
                 record3 = { 'Time': CURRENT_TIME, 'Dimensions': dimension3, 'MeasureName': 'Pactual', 'MeasureValue': str(P_dewar[-1]),'MeasureValueType': 'DOUBLE'}
                 record4 = { 'Time': CURRENT_TIME, 'Dimensions': dimension4, 'MeasureName': 'Psetpoint', 'MeasureValue': str(SP_press[-1]),'MeasureValueType': 'DOUBLE'}
                 record4 = { 'Time': CURRENT_TIME, 'Dimensions': dimension5, 'MeasureName': 'Connection', 'MeasureValue': str(Connection_state[-1]),'MeasureValueType': 'DOUBLE'}
-
+                print(str(Volume_data[-1]), str(Rate_of_Change[-1]), str(P_dewar[-1]), str(SP_press[-1]), str(Connection_state[-1]))
                 records = [record1,record2,record3,record4]
                 response = client.write_records(DatabaseName=DB_NAME,TableName=QD,Records=records)
                 print(response)
