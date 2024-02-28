@@ -70,7 +70,7 @@ def main():
         dimension3 = [ {'Name': 'Parameter', 'Value': 'Pressure Actual'}, {'Name': 'Units', 'Value': 'PSI'}, {'Name': 'Quantum Design Liquifier', 'Value': QD}]
         dimension4 = [ {'Name': 'Parameter', 'Value': 'Pressure Setpoint'}, {'Name': 'Units', 'Value': 'PSI'}, {'Name': 'Quantum Design Liquifier', 'Value': QD}]
         dimension5 = [ {'Name': 'Parameter', 'Value': 'Connection status'}, {'Name': 'Units', 'Value': 'Boolean'}, {'Name': 'Quantum Design Liquifier', 'Value': QD}]
-
+        print(str(Volume_data), str(Rate_of_Change), str(P_dewar), str(SP_press), str(Connection_state))
         record1 = { 'Time': CURRENT_TIME, 'Dimensions': dimension1, 'MeasureName': 'Volume', 'MeasureValue': str(Volume_data),'MeasureValueType': 'DOUBLE'}
         record2 = { 'Time': CURRENT_TIME, 'Dimensions': dimension2, 'MeasureName': 'Rate', 'MeasureValue': str(Rate_of_Change),'MeasureValueType': 'DOUBLE'}
         record3 = { 'Time': CURRENT_TIME, 'Dimensions': dimension3, 'MeasureName': 'Pactual', 'MeasureValue': str(P_dewar),'MeasureValueType': 'DOUBLE'}
