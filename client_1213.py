@@ -70,12 +70,12 @@ def main():
         dimension3 = [ {'Name': 'Parameter', 'Value': 'Pressure Actual'}, {'Name': 'Units', 'Value': 'PSI'}, {'Name': 'Quantum Design Liquifier', 'Value': QD}]
         dimension4 = [ {'Name': 'Parameter', 'Value': 'Pressure Setpoint'}, {'Name': 'Units', 'Value': 'PSI'}, {'Name': 'Quantum Design Liquifier', 'Value': QD}]
         dimension5 = [ {'Name': 'Parameter', 'Value': 'Connection status'}, {'Name': 'Units', 'Value': 'Boolean'}, {'Name': 'Quantum Design Liquifier', 'Value': QD}]
-        print(str(Volume_data), str(Rate_of_Change), str(P_dewar), str(SP_press), str(Connection_state))
-        record1 = { 'Time': CURRENT_TIME, 'Dimensions': dimension1, 'MeasureName': 'Volume', 'MeasureValue': str(Volume_data),'MeasureValueType': 'DOUBLE'}
-        record2 = { 'Time': CURRENT_TIME, 'Dimensions': dimension2, 'MeasureName': 'Rate', 'MeasureValue': str(Rate_of_Change),'MeasureValueType': 'DOUBLE'}
-        record3 = { 'Time': CURRENT_TIME, 'Dimensions': dimension3, 'MeasureName': 'Pactual', 'MeasureValue': str(P_dewar),'MeasureValueType': 'DOUBLE'}
-        record4 = { 'Time': CURRENT_TIME, 'Dimensions': dimension4, 'MeasureName': 'Psetpoint', 'MeasureValue': str(SP_press),'MeasureValueType': 'DOUBLE'}
-        record4 = { 'Time': CURRENT_TIME, 'Dimensions': dimension5, 'MeasureName': 'Connection', 'MeasureValue': str(Connection_state),'MeasureValueType': 'DOUBLE'}
+        print(str(Volume_data[-1]), str(Rate_of_Change[-1]), str(P_dewar[-1]), str(SP_press[-1]), str(Connection_state[-1]))
+        record1 = { 'Time': CURRENT_TIME, 'Dimensions': dimension1, 'MeasureName': 'Volume', 'MeasureValue': str(Volume_data[-1]),'MeasureValueType': 'DOUBLE'}
+        record2 = { 'Time': CURRENT_TIME, 'Dimensions': dimension2, 'MeasureName': 'Rate', 'MeasureValue': str(Rate_of_Change[-1]),'MeasureValueType': 'DOUBLE'}
+        record3 = { 'Time': CURRENT_TIME, 'Dimensions': dimension3, 'MeasureName': 'Pactual', 'MeasureValue': str(P_dewar[-1]),'MeasureValueType': 'DOUBLE'}
+        record4 = { 'Time': CURRENT_TIME, 'Dimensions': dimension4, 'MeasureName': 'Psetpoint', 'MeasureValue': str(SP_press[-1]),'MeasureValueType': 'DOUBLE'}
+        record4 = { 'Time': CURRENT_TIME, 'Dimensions': dimension5, 'MeasureName': 'Connection', 'MeasureValue': str(Connection_state[-1]),'MeasureValueType': 'DOUBLE'}
 
         records = [record1,record2,record3,record4]
 
@@ -106,11 +106,11 @@ def main():
                 dimension4 = [ {'Name': 'Parameter', 'Value': 'Pressure Setpoint'}, {'Name': 'Units', 'Value': 'PSI'}, {'Name': 'Quantum Design Liquifier', 'Value': QD}]
                 dimension5 = [ {'Name': 'Parameter', 'Value': 'Connection status'}, {'Name': 'Units', 'Value': 'Boolean'}, {'Name': 'Quantum Design Liquifier', 'Value': QD}]
 
-                record1 = { 'Time': CURRENT_TIME, 'Dimensions': dimension1, 'MeasureName': 'Volume', 'MeasureValue': str(Volume_data),'MeasureValueType': 'DOUBLE'}
-                record2 = { 'Time': CURRENT_TIME, 'Dimensions': dimension2, 'MeasureName': 'Rate', 'MeasureValue': str(Rate_of_Change),'MeasureValueType': 'DOUBLE'}
-                record3 = { 'Time': CURRENT_TIME, 'Dimensions': dimension3, 'MeasureName': 'Pactual', 'MeasureValue': str(P_dewar),'MeasureValueType': 'DOUBLE'}
-                record4 = { 'Time': CURRENT_TIME, 'Dimensions': dimension4, 'MeasureName': 'Psetpoint', 'MeasureValue': str(SP_press),'MeasureValueType': 'DOUBLE'}
-                record4 = { 'Time': CURRENT_TIME, 'Dimensions': dimension5, 'MeasureName': 'Connection', 'MeasureValue': str(Connection_state),'MeasureValueType': 'DOUBLE'}
+                record1 = { 'Time': CURRENT_TIME, 'Dimensions': dimension1, 'MeasureName': 'Volume', 'MeasureValue': str(Volume_data[-1]),'MeasureValueType': 'DOUBLE'}
+                record2 = { 'Time': CURRENT_TIME, 'Dimensions': dimension2, 'MeasureName': 'Rate', 'MeasureValue': str(Rate_of_Change[-1]),'MeasureValueType': 'DOUBLE'}
+                record3 = { 'Time': CURRENT_TIME, 'Dimensions': dimension3, 'MeasureName': 'Pactual', 'MeasureValue': str(P_dewar[-1]),'MeasureValueType': 'DOUBLE'}
+                record4 = { 'Time': CURRENT_TIME, 'Dimensions': dimension4, 'MeasureName': 'Psetpoint', 'MeasureValue': str(SP_press[-1]),'MeasureValueType': 'DOUBLE'}
+                record4 = { 'Time': CURRENT_TIME, 'Dimensions': dimension5, 'MeasureName': 'Connection', 'MeasureValue': str(Connection_state[-1]),'MeasureValueType': 'DOUBLE'}
 
                 records = [record1,record2,record3,record4]
                 response = client.write_records(DatabaseName=DB_NAME,TableName=QD,Records=records)
