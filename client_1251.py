@@ -74,7 +74,7 @@ def main():
 
     records = [record1,record2,record3,record4]
 
-    response = client.write_records(DatabaseName=DB_NAME,TableName=QD,Records=records)
+    response = client.write_records(DatabaseName=DB_NAME,TableName='Cryomech',Records=records)
 
     print(response)
 
@@ -113,7 +113,7 @@ def main():
 
             records = [record1,record2,record3,record4]
 
-            response = client.write_records(DatabaseName=DB_NAME,TableName=QD,Records=records)
+            response = client.write_records(DatabaseName=DB_NAME,TableName='Cryomech',Records=records)
 
             print(response)
             
