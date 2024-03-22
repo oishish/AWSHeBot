@@ -105,7 +105,7 @@ def main():
             dimension5 = [ {'Name': 'Parameter', 'Value': 'Volume'}, {'Name': 'Units', 'Value': 'Liters'}, {'Name': 'Cryomech volume', 'Value': 'Cryomech liquifier'}]
 
 
-            record1 = { 'Time': CURRENT_TIME, 'Dimensions': dimension1, 'MeasureName': 'Pressure', 'MeasureValue': str(MPT_Pressure[-1]),'MeasureValueType': 'DOUBLE'}
+            record1 = { 'Time': CURRENT_TIME, 'Dimensions': dimension1, 'MeasureName': 'MPT_Pressure', 'MeasureValue': str(MPT_Pressure[-1]),'MeasureValueType': 'DOUBLE'}
             record2 = { 'Time': CURRENT_TIME, 'Dimensions': dimension2, 'MeasureName': 'Current', 'MeasureValue': str(Purity_Sensor[-1]),'MeasureValueType': 'DOUBLE'}
             record3 = { 'Time': CURRENT_TIME, 'Dimensions': dimension3, 'MeasureName': 'Pressure', 'MeasureValue': str(Liquifier_Pressure[-1]),'MeasureValueType': 'DOUBLE'}
             record4 = { 'Time': CURRENT_TIME, 'Dimensions': dimension4, 'MeasureName': 'Temperature', 'MeasureValue': str(Liquifier_Temp[-1]),'MeasureValueType': 'DOUBLE'}
