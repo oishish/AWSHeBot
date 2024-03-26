@@ -58,7 +58,7 @@ def main():
     ## Initially, retrieve data from each of the three quantum designs
 
     for QD in QD_DICT.keys():
-        print('Retrieving data from' + QD_DICT[QD])
+        print('Retrieving data from ' + QD_DICT[QD])
         Volume_data, Rate_of_Change, P_dewar, SP_press, Connection_state = retrieve_data_from_QD(host = QD_DICT[QD])
         print('Volume, Rate, Pressure, Pressure setpoint, Connection status')
         print(str(Volume_data[-1]), str(Rate_of_Change[-1]), str(P_dewar[-1]), str(SP_press[-1]), str(Connection_state[-1]))
@@ -73,8 +73,6 @@ def main():
         dimension3 = [ {'Name': 'Parameter', 'Value': 'Pressure Actual'}, {'Name': 'Units', 'Value': 'PSI'}, {'Name': 'Quantum Design Liquifier', 'Value': QD}]
         dimension4 = [ {'Name': 'Parameter', 'Value': 'Pressure Setpoint'}, {'Name': 'Units', 'Value': 'PSI'}, {'Name': 'Quantum Design Liquifier', 'Value': QD}]
         dimension5 = [ {'Name': 'Parameter', 'Value': 'Connection status'}, {'Name': 'Units', 'Value': 'Boolean'}, {'Name': 'Quantum Design Liquifier', 'Value': QD}]
-        print(str(Volume_data[-1]), str(Rate_of_Change[-1]), str(P_dewar[-1]), str(SP_press[-1]), str(Connection_state[-1]))
-        print(str(Volume_data))
         record1 = { 'Time': CURRENT_TIME, 'Dimensions': dimension1, 'MeasureName': 'Volume', 'MeasureValue': str(Volume_data[-1]),'MeasureValueType': 'DOUBLE'}
         record2 = { 'Time': CURRENT_TIME, 'Dimensions': dimension2, 'MeasureName': 'Rate', 'MeasureValue': str(Rate_of_Change[-1]),'MeasureValueType': 'DOUBLE'}
         record3 = { 'Time': CURRENT_TIME, 'Dimensions': dimension3, 'MeasureName': 'Pactual', 'MeasureValue': str(P_dewar[-1]),'MeasureValueType': 'DOUBLE'}
