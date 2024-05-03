@@ -39,7 +39,7 @@ def retrieve_data_from_Cryomech():
         Pure[i] = float(data[i, 18])
         CryoP[i] = float(data[i, 2])
         CryoTemp[i] = float(data[i, 4])
-        CryoVolume[i] = float(data[i, 5])
+        CryoVolume[i] = float(data[i, 6])
     
     return P, Pure, CryoP, CryoTemp, CryoVolume
 
@@ -70,9 +70,9 @@ def main():
     record2 = { 'Time': CURRENT_TIME, 'Dimensions': dimension2, 'MeasureName': 'Current', 'MeasureValue': str(Purity_Sensor[-1]),'MeasureValueType': 'DOUBLE'}
     record3 = { 'Time': CURRENT_TIME, 'Dimensions': dimension3, 'MeasureName': 'Pressure', 'MeasureValue': str(Liquifier_Pressure[-1]),'MeasureValueType': 'DOUBLE'}
     record4 = { 'Time': CURRENT_TIME, 'Dimensions': dimension4, 'MeasureName': 'Temperature', 'MeasureValue': str(Liquifier_Temp[-1]),'MeasureValueType': 'DOUBLE'}
-    record4 = { 'Time': CURRENT_TIME, 'Dimensions': dimension5, 'MeasureName': 'Volume', 'MeasureValue': str(Liquififer_Volume[-1]),'MeasureValueType': 'DOUBLE'}
+    record5 = { 'Time': CURRENT_TIME, 'Dimensions': dimension5, 'MeasureName': 'Volume', 'MeasureValue': str(Liquififer_Volume[-1]),'MeasureValueType': 'DOUBLE'}
 
-    records = [record1,record2,record3,record4]
+    records = [record1,record2,record3,record4, record5]
 
     response = client.write_records(DatabaseName=DB_NAME,TableName='Cryomech',Records=records)
 
@@ -109,9 +109,9 @@ def main():
             record2 = { 'Time': CURRENT_TIME, 'Dimensions': dimension2, 'MeasureName': 'Current', 'MeasureValue': str(Purity_Sensor[-1]),'MeasureValueType': 'DOUBLE'}
             record3 = { 'Time': CURRENT_TIME, 'Dimensions': dimension3, 'MeasureName': 'Pressure', 'MeasureValue': str(Liquifier_Pressure[-1]),'MeasureValueType': 'DOUBLE'}
             record4 = { 'Time': CURRENT_TIME, 'Dimensions': dimension4, 'MeasureName': 'Temperature', 'MeasureValue': str(Liquifier_Temp[-1]),'MeasureValueType': 'DOUBLE'}
-            record4 = { 'Time': CURRENT_TIME, 'Dimensions': dimension5, 'MeasureName': 'Volume', 'MeasureValue': str(Liquififer_Volume[-1]),'MeasureValueType': 'DOUBLE'}
+            record5 = { 'Time': CURRENT_TIME, 'Dimensions': dimension5, 'MeasureName': 'Volume', 'MeasureValue': str(Liquififer_Volume[-1]),'MeasureValueType': 'DOUBLE'}
 
-            records = [record1,record2,record3,record4]
+            records = [record1,record2,record3,record4, record5]
 
             response = client.write_records(DatabaseName=DB_NAME,TableName='Cryomech',Records=records)
 

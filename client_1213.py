@@ -77,9 +77,9 @@ def main():
         record2 = { 'Time': CURRENT_TIME, 'Dimensions': dimension2, 'MeasureName': 'Rate', 'MeasureValue': str(Rate_of_Change[-1]),'MeasureValueType': 'DOUBLE'}
         record3 = { 'Time': CURRENT_TIME, 'Dimensions': dimension3, 'MeasureName': 'Pactual', 'MeasureValue': str(P_dewar[-1]),'MeasureValueType': 'DOUBLE'}
         record4 = { 'Time': CURRENT_TIME, 'Dimensions': dimension4, 'MeasureName': 'Psetpoint', 'MeasureValue': str(SP_press[-1]),'MeasureValueType': 'DOUBLE'}
-        record4 = { 'Time': CURRENT_TIME, 'Dimensions': dimension5, 'MeasureName': 'Connection', 'MeasureValue': str(Connection_state[-1]),'MeasureValueType': 'DOUBLE'}
+        record5 = { 'Time': CURRENT_TIME, 'Dimensions': dimension5, 'MeasureName': 'Connection', 'MeasureValue': str(Connection_state[-1]),'MeasureValueType': 'DOUBLE'}
 
-        records = [record1,record2,record3,record4]
+        records = [record1,record2,record3,record4, record5]
 
         response = client.write_records(DatabaseName=DB_NAME,TableName=QD,Records=records)
 
@@ -115,9 +115,9 @@ def main():
                 record2 = { 'Time': CURRENT_TIME, 'Dimensions': dimension2, 'MeasureName': 'Rate', 'MeasureValue': str(Rate_of_Change[-1]),'MeasureValueType': 'DOUBLE'}
                 record3 = { 'Time': CURRENT_TIME, 'Dimensions': dimension3, 'MeasureName': 'Pactual', 'MeasureValue': str(P_dewar[-1]),'MeasureValueType': 'DOUBLE'}
                 record4 = { 'Time': CURRENT_TIME, 'Dimensions': dimension4, 'MeasureName': 'Psetpoint', 'MeasureValue': str(SP_press[-1]),'MeasureValueType': 'DOUBLE'}
-                record4 = { 'Time': CURRENT_TIME, 'Dimensions': dimension5, 'MeasureName': 'Connection', 'MeasureValue': str(Connection_state[-1]),'MeasureValueType': 'DOUBLE'}
+                record5 = { 'Time': CURRENT_TIME, 'Dimensions': dimension5, 'MeasureName': 'Connection', 'MeasureValue': str(Connection_state[-1]),'MeasureValueType': 'DOUBLE'}
                 print(str(Volume_data[-1]), str(Rate_of_Change[-1]), str(P_dewar[-1]), str(SP_press[-1]), str(Connection_state[-1]))
-                records = [record1,record2,record3,record4]
+                records = [record1,record2,record3,record4, record5]
                 response = client.write_records(DatabaseName=DB_NAME,TableName=QD,Records=records)
                 print(response)
             
