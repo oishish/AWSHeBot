@@ -39,7 +39,7 @@ def retrieve_data_from_Cryomech():
         Pure[i] = float(data[i, 18])
         CryoP[i] = float(data[i, 2])
         CryoTemp[i] = float(data[i, 4])
-        CryoVolume[i] = float(data[i, 6])
+        CryoVolume[i] = (2.97*float(data[i, 5])) - 14.0
     
     return P, Pure, CryoP, CryoTemp, CryoVolume
 
